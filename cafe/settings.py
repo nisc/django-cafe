@@ -21,4 +21,3 @@ BIN = getattr(django_settings, 'COFFEE_BIN', 'coffee')
 PARAMS = getattr(django_settings, 'COFFEE_PARAMS', '-cjp')
 
 CACHE_TIME = getattr(django_settings, 'COFFEE_CACHE_TIME', 60*60*24*30)
-

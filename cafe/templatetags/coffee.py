@@ -17,6 +17,6 @@ def coffee(parser, token):
 class CoffeeNode(template.Node):
     def __init__(self, files):
         self.compiler = Compiler(files)
-    
+
     def render(self, context):
         return self.compiler.compile()

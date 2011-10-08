@@ -1,4 +1,3 @@
-import re
 import hashlib
 import os
 import subprocess
@@ -26,7 +25,7 @@ class Compiler(object):
     @property
     def mtimes(self):
         return map(self.mtime, self.files)
-    
+
     def build(self, output):
         files = map(self.path, self.files)
         with open(os.path.join(settings.ABSOLUTE_OUTPUT, output), 'w') as out:
@@ -39,7 +38,7 @@ class Compiler(object):
         mtimes = self.mtimes
 
         base_name = hashlib.sha1(''.join(map(str, mtimes))).hexdigest()[:16]
-        name = '.'.join([base_name, 'js'])        
+        name = '.'.join([base_name, 'js'])
 
         key = '-'.join(['CAFE', self.hash])
 
