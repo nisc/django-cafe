@@ -29,8 +29,9 @@ class Compiler(object):
     def build(self, output):
         files = map(self.path, self.files)
         with open(os.path.join(settings.ABSOLUTE_OUTPUT, output), 'w') as out:
-            proc = subprocess.Popen([settings.BIN, settings.PARAMS] + files,
-                                    stdout=subprocess.PIPE)
+            params = ' '.join([settings.EXTRA_PARAMS.strip(), '--print'])
+            proc = subprocess.Popen([settings.BIN, params.strip()] + files,
+                    stdout=subprocess.PIPE)
             stdout, stderr = proc.communicate()
             out.write(stdout)
 

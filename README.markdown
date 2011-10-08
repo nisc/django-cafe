@@ -45,8 +45,8 @@ Default: `"coffee"`
 
 The Coffeescript executable.
 
-### COFFEE_PARAMS
+### COFFEE_EXTRA_PARAMS
 
-Default: `"-cj"`
+Default: `''`
 
-The parameters sent to the Coffeescript compiler.
+Extra parameters sent to the Coffeescript compiler.
