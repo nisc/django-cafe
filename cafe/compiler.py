@@ -1,6 +1,7 @@
 import hashlib
 import os
 import subprocess
+from urlparse import urljoin
 
 import settings
 from django.core.cache import cache
@@ -36,6 +37,9 @@ class Compiler(object):
             out.write(stdout)
 
     def compile(self):
+        """
+        Compile the .coffee files and return the URI to the resulting .js.
+        """
         mtimes = self.mtimes
 
         base_name = hashlib.sha1(''.join(map(str, mtimes))).hexdigest()[:16]
@@ -47,4 +51,4 @@ class Compiler(object):
         if previous is None or previous != name:
             self.build(name)
             cache.set(key, name, settings.CACHE_TIME)
-        return os.path.join(settings.OUTPUT_DIR, name)
+        return urljoin(settings.URL_BASE, name)

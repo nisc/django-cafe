@@ -39,6 +39,12 @@ Default: `compiled`
 
 The location within the `CAFE_ROOT` to store the compiled .js files.
 
+### CAFE_URL_BASE
+
+Default: `/static/compiled/`
+
+The location where the compiled coffee scripts are exposed.
+
 ### COFFEE_BIN
 
 Default: `"coffee"`
